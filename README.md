@@ -1,3 +1,218 @@
 # reset css
 
 A foundational stylesheet for modern web development
+
+## Why reset.css
+
+- Consistent styling in every browser
+- No dependencies, just one CSS file
+- Low specificity, easy to override
+- Predictable sizing with border-box
+- Images and media scale by default
+- Respects `reduced-motion-preferences`
+
+## Usage
+
+Save the [source](#source) as `reset.css` and load it before your other styles.
+
+```html
+<link rel="stylesheet" href="reset.css" />
+```
+
+You can also import it from css, js, jsx, ts or tsx
+
+```css
+/* css */
+@import "./reset.css";
+```
+
+```js
+// js, jsx, ts or tsx
+import "./reset.css";
+```
+
+Put it in a layer so your own styles always win.
+
+```css
+@layer reset, token, base, components;
+
+@import "./reset.css" layer(reset);
+```
+
+```css
+@layer reset {
+  /* paste reset.css here */
+}
+```
+
+## Source
+
+```css
+/* reset.css v0.1.0 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+small {
+  font-size: 80%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
+  -webkit-appearance: button;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+:-moz-focusring {
+  outline: auto;
+}
+
+img,
+svg,
+video,
+canvas,
+picture,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+svg,
+video,
+canvas,
+picture {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-wrap: break-word;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+:root,
+:host {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::after,
+  *::before,
+  *::backdrop {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+```
