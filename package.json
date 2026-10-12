@@ -2,6 +2,8 @@
   "name": "reset-css",
   "version": "0.1.0",
   "description": "A foundational stylesheet for modern web development",
+  "author": "Nasser Karinganire",
+  "license": "MIT",
   "homepage": "https://github.com/nasserkari/reset-css#readme",
   "bugs": {
     "url": "https://github.com/nasserkari/reset-css/issues"
@@ -9,12 +11,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nasserkari/reset-css.git"
-  },
-  "license": "MIT",
-  "author": "Nasser Karinganire",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
