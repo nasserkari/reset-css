@@ -48,8 +48,6 @@ Put it in a layer so your own styles always win.
 ## Source
 
 ```css
-/* reset.css v0.1.0 */
-
 * {
   margin: 0;
   padding: 0;
@@ -68,7 +66,6 @@ a {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  text-decoration: underline dotted;
 }
 
 b,
@@ -93,14 +90,14 @@ hr {
 }
 
 pre {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 
 code,
 kbd,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em;
 }
 
@@ -202,17 +199,13 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::after,
-  *::before,
-  *::backdrop {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
 
-  html {
-    scroll-behavior: auto;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
 ```
