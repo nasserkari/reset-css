@@ -48,29 +48,36 @@ Put it in a layer so your own styles always win.
 ## Source
 
 ```css
-* {
+*,
+::after,
+::before,
+::backdrop,
+::file-selector-button {
   margin: 0;
   padding: 0;
-}
-
-*,
-*::after,
-*::before {
+  border: 0 solid;
   box-sizing: border-box;
 }
 
-a {
-  color: inherit;
+:root,
+:host {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
 }
 
-b,
-strong {
-  font-weight: bolder;
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -83,31 +90,23 @@ h6 {
   font-weight: inherit;
 }
 
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
-pre {
-  font-family: monospace;
-  font-size: 1em;
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
 }
 
-code,
-kbd,
-samp {
-  font-family: monospace;
-  font-size: 1em;
+b,
+strong {
+  font-weight: bolder;
 }
 
 small {
   font-size: 80%;
-}
-
-ol,
-ul {
-  list-style: none;
 }
 
 sub,
@@ -126,27 +125,18 @@ sup {
   top: -0.5em;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  appearance: button;
-  -webkit-appearance: button;
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: 1em;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-:-moz-focusring {
-  outline: auto;
+ol,
+ul,
+menu {
+  list-style: none;
 }
 
 img,
@@ -175,25 +165,40 @@ table {
   border-spacing: 0;
 }
 
-body {
-  min-height: 100vh;
-  overflow-wrap: break-word;
+button,
+input,
+optgroup,
+select,
+textarea,
+::file-selector-button {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  appearance: button;
 }
 
-:root,
-:host {
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+::file-selector-button {
+  margin-inline-end: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+:-moz-focusring {
+  outline: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
+    scroll-behavior: smooth;
     interpolate-size: allow-keywords;
   }
 }
@@ -205,7 +210,6 @@ html {
   *::after {
     animation: none !important;
     transition: none !important;
-    scroll-behavior: auto !important;
   }
 }
 ```
