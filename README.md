@@ -152,7 +152,6 @@ object {
 }
 
 img,
-svg,
 video,
 canvas,
 picture {
@@ -203,13 +202,16 @@ textarea {
   }
 }
 
+
 @media (prefers-reduced-motion: reduce) {
 
   *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 ```
