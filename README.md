@@ -49,8 +49,8 @@ Put it in a layer so your own styles always win.
 
 ```css
 *,
-::after,
 ::before,
+::after,
 ::backdrop,
 ::file-selector-button {
   margin: 0;
@@ -61,9 +61,11 @@ Put it in a layer so your own styles always win.
 
 :root,
 :host {
+  tab-size: 4;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -90,16 +92,6 @@ h6 {
   font-weight: inherit;
 }
 
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-abbr[title] {
-  border-bottom: none;
-  text-decoration: underline;
-}
-
 b,
 strong {
   font-weight: bolder;
@@ -111,9 +103,9 @@ small {
 
 sub,
 sup {
+  position: relative;
   font-size: 75%;
   line-height: 0;
-  position: relative;
   vertical-align: baseline;
 }
 
@@ -129,7 +121,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 
@@ -137,6 +129,10 @@ ol,
 ul,
 menu {
   list-style: none;
+}
+
+summary {
+  display: list-item;
 }
 
 img,
@@ -162,6 +158,8 @@ picture {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  border-color: inherit;
+  text-indent: 0;
 }
 
 button,
@@ -170,10 +168,11 @@ optgroup,
 select,
 textarea,
 ::file-selector-button {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
+  font: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  letter-spacing: inherit;
+  color: inherit;
 }
 
 button,
@@ -191,8 +190,33 @@ textarea {
   resize: vertical;
 }
 
+::placeholder {
+  opacity: 1;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
 :-moz-focusring {
   outline: auto;
+}
+
+[hidden]:where(:not([hidden="until-found"])) {
+  display: none !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -201,7 +225,6 @@ textarea {
     interpolate-size: allow-keywords;
   }
 }
-
 
 @media (prefers-reduced-motion: reduce) {
 
